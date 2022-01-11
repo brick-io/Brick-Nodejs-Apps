@@ -8,11 +8,10 @@ The official node.js client library for the [OneBrick](https://www.onebrick.io/)
 * Example
  	 - Authenticate the Account 
 	 - List Institution
-	 - Connect Bank Account 
+	 - Connect Bank Account / Income Verification
 	 - Connect Ecommerce Account
 	 - Connect EWallet Account
 	 - Connect Corporate Bank Account
-	 - Connect Income Verification Account
 
 * 	 Error Handling
 
@@ -76,7 +75,7 @@ it will return:
   }
 ```
 
-**Connect Bank Account**
+**Connect Bank / Income Verification Account**
 
 You can connect bank account and also with specific field like `username`, `password`,`institution_id` from list institution
 
@@ -100,6 +99,7 @@ sdk
 **Connect Ecommerce Account**
 
 In this section you will do 2 step
+
   -  First you need to connect ecommerce account  with specific field like `username`, `password`,`institution_id` from list institution
   -  Second, you need to put an OTP from the ecommerce itself
 
@@ -123,4 +123,42 @@ Input OTP
   
   })
 ```
+
+**Connect EWallet Account**
+
+In this section you will do 2 step
+
+  -  First you need to connect ecommerce account  with specific field like `username`, `password`,`institution_id` from list institution
+  
+  -  Second, you need to put an OTP/ link from the ecommerce itself
+
+```
+sdk.authenticateWithEwallet(username.toString(), password.toString(), parseInt(institutionId.toString())).then((data) => {
+
+}).catch((err) => {
+
+
+})
+```
+
+You have to check 2nd step, if it's `OVO` with institution ID is `12` you need to put the `link` and `pin` that send to customer phone with sms method
+
+```
+ sdk.reauthenticateWithOTPEwallletAndLink(parseInt(institutionId.toString()), pin.toString(), url.toString(), ).then((data) => {
+
+                            }).catch((err) => {
+
+                            });
+```
+
+Otherwise, just put the `otp`
+
+```
+sdk.reauthenticateWithOTPEwalllet(otp.toString(), parseInt(institutionId.toString())).then((dataOtp) => {
+                            console.log(dataOtp)
+                        }).catch((err) => {
+                            console.log(err.response.data);
+                        });
+```
+
 
