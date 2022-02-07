@@ -18,7 +18,7 @@ const rl = readline.createInterface({
 async function main() {
   rl.question("PUT USER ACCESSS TOKEN  :", function (accessToken) {
     sdk
-      .requestEmploymentDataIncomeInformation(accessToken)
+      .requestEmploymentDataPastCompanies(accessToken)
       .then((data) => {
         console.log(data);
       })
