@@ -1,5 +1,6 @@
-const { BrickSDK, ENVIRONMENT } = require("onebrick-node-sdk");
-require('dotenv').config();
+ const readline = require("readline");
+ const { BrickSDK, ENVIRONMENT } = require("onebrick-node-sdk");
+ require('dotenv').config();
 
 let sdk = new BrickSDK(
   process.env.CLIENT_ID,
