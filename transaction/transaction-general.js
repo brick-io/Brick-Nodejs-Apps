@@ -17,8 +17,8 @@ const rl = readline.createInterface({
 
 async function main() {
   rl.question("PUT USER ACCESSS TOKEN  :", function (accessToken) {
-    rl.question("DATE START  DD-MM-YYYY:", function (start) {
-      rl.question("DATE END DD-MM-YYYY:", function (end) {
+    rl.question("DATE START  YYYY-MM-DD:", function (start) {
+      rl.question("DATE END YYYY-MM-DD:", function (end) {
         sdk
           .requestTransactionListGeneral(accessToken, start, end)
           .then((data) => {
