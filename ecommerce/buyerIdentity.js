@@ -1,12 +1,14 @@
 const { BrickSDK, ENVIRONMENT } = require("onebrick-node-sdk");
 const readline = require("readline");
 
-const clientId = "2193af78-1bbe-4a00-b03f-694c11c552fc";
-const clientSecret = "xJrbT2993YP89wxy8lK4TPdj72RcYT";
-const name = "BRICK";
-const url = "https://onebrick.io";
 
-let sdk = new BrickSDK(clientId, clientSecret, ENVIRONMENT.SANDBOX, name, url);
+let sdk = new BrickSDK(
+  process.env.CLIENT_ID,
+  process.env.CLIENT_SECRET,
+  ENVIRONMENT.SANDBOX,
+  process.env.NAME,
+  process.env.REDIRECT_URL
+);
 
 const rl = readline.createInterface({
   input: process.stdin,
