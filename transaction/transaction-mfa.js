@@ -17,16 +17,14 @@ const rl = readline.createInterface({
 
 async function main() {
   rl.question("PUT USER ACCESSS TOKEN  :", function (accessToken) {
-    rl.question("ACCOUNT ID  :", function (institutionId) {
-      sdk
-        .requestAccountDetailGeneral(accessToken, institutionId)
-        .then((data) => {
-          console.log(data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    });
+    sdk
+      .requestTransactionListMFA(accessToken)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   });
 }
 main();
