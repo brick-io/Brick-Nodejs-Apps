@@ -17,10 +17,10 @@ const rl = readline.createInterface({
 
 async function main() {
   rl.question("PUT USER ACCESSS TOKEN  :", function (accessToken) {
-    rl.question("DATE START  MM-YYYY:", function (start) {
-      rl.question("DATE END MM-YYYY:", function (end) {
+    rl.question("USER ID:", function (userID) {
+      rl.question("FILE PATH:", function (filePath) {
         sdk
-          .requestInsightWorkerAvgBalance(accessToken, start, end)
+          .uploadDocumentStatement(accessToken, userID, filePath)
           .then((data) => {
             console.log(data);
           })

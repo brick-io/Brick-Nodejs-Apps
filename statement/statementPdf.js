@@ -17,10 +17,10 @@ const rl = readline.createInterface({
 
 async function main() {
   rl.question("PUT USER ACCESSS TOKEN  :", function (accessToken) {
-    rl.question("DATE START  MM-YYYY:", function (start) {
-      rl.question("DATE END MM-YYYY:", function (end) {
+    rl.question("MONTH  MM:", function (start) {
+      rl.question("YEAR YYYY:", function (end) {
         sdk
-          .requestInsightWorkerAvgBalance(accessToken, start, end)
+          .requestStatement(accessToken, start, end)
           .then((data) => {
             console.log(data);
           })
