@@ -32,7 +32,11 @@ async function initEcommerceAccount() {
             rl.question("Put ecommerce password ? ", function (password) {
 
                 sdk.authenticateWithEcommerce(username.toString(), password.toString(), parseInt(institutionId.toString())).then((data) => {
-                    rl.question("input OTP ", function (otp) {
+                    let text = 'Please open the link sent to your phone number before you continue. then press enter';
+                    if(institutionId == 20) {
+                        text = 'Input OTP';
+                    }
+                    rl.question(text, function (otp) {
                         sdk.reAuthenticationWithEcommerce(otp.toString(), parseInt(institutionId.toString())).then((dataOtp) => {
                             console.log(dataOtp)
                             rl.close();
